@@ -29,7 +29,7 @@ void setup() {
 
   int iter;
   for(iter = 0; iter<2000; iter++){
-    gyro_signals();
+    setupMPU();
     RateCalibrationRoll += RateRoll;
     RateCalibrationPitch += RatePitch;
     RateCalibrationYaw += RateYaw;
@@ -50,7 +50,7 @@ RateCalibrationYaw /= 2000;
 
 void loop() {
 // current = millis();
-  gyro_signals();
+  setupMPU();
  Serial.print("Roll angle(deg)= ");
   Serial.print(angleroll);
   Serial.print("   pitch angle(deg)= ");
@@ -62,7 +62,7 @@ void loop() {
 }
 
 /**********switch on the low pass filter***************/
-void gyro_signals(void){
+void setupMPU(void){
   Wire.beginTransmission(0x68);
   Wire.write(0x1A);
   Wire.write(0x05);
