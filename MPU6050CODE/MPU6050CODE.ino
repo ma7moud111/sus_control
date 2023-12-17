@@ -1,21 +1,30 @@
 /*
-
+*****************************************************************************
 project name: active suspension system
 mini project titie: getting data from the MPU
-Authors : Mahmoud Sayed & Sherief Abdelmohsen 
-
+Authors : 1- Mahmoud Sayed 
+          2- Sherief Abdelmohsen 
+github repo: https://github.com/ma7moud111/sus_control/tree/main/MPU6050CODE
+****************************************************************************
 */
 
 #include <Wire.h>
+
+
+/*type the length of the half of the car in centimeters*/
+#define LENGTH_OF_HALF_OF_CAR_IN_CM   12.5
 
 // define the acceelerometer variables
 float accelX, accelY, accelZ;
 float angleroll, anglepitch;
 float looptimer;
 
+// define the gyrscope variables
 long gyroX, gyroY, gyroZ;
 float RateRoll, RatePitch, RateYaw;
 float RateCalibrationRoll, RateCalibrationPitch, RateCalibrationYaw;
+float height_of_bump;
+
 
 void setup() {
   Serial.begin(9600);
@@ -29,7 +38,7 @@ void setup() {
 
   int iter;
   for(iter = 0; iter<2000; iter++){
-    setupMPU();
+    gyro_signals();
     RateCalibrationRoll += RateRoll;
     RateCalibrationPitch += RatePitch;
     RateCalibrationYaw += RateYaw;
@@ -50,19 +59,12 @@ RateCalibrationYaw /= 2000;
 
 void loop() {
 // current = millis();
-  setupMPU();
- Serial.print("Roll angle(deg)= ");
-  Serial.print(angleroll);
-  Serial.print("   pitch angle(deg)= ");
-  Serial.print(anglepitch);
-  Serial.print("\n");
-  // period = current -last;
-  // last =current;
-  delay(200);
+  gyro_signals();
+  print_data();
 }
 
 /**********switch on the low pass filter***************/
-void setupMPU(void){
+void gyro_signals(void){
   Wire.beginTransmission(0x68);
   Wire.write(0x1A);
   Wire.write(0x05);
@@ -105,9 +107,25 @@ void setupMPU(void){
   accelZ = (float)accelZLSB / 4096 + 0.02;
 
   //calculating theta pitch and theta roll 
-  angleroll = atan(accelY / sqrt(accelX * accelX + accelZ * accelZ)) * 1/(3.412/180);
-  anglepitch = atan(accelX / sqrt(accelY * accelY + accelZ * accelZ)) * 1/(3.412/180);
+  angleroll = atan(accelY / sqrt(accelX * accelX + accelZ * accelZ)) * 1/(3.14/180);
+  anglepitch = atan(accelX / sqrt(accelY * accelY + accelZ * accelZ)) * 1/(3.14/180);
+  height_of_bump = LENGTH_OF_HALF_OF_CAR_IN_CM * tan(angleroll * 3.14/180);
 
+
+}
+
+void print_data(void)
+{
+  Serial.print("Roll angle(deg)= ");
+  Serial.print(angleroll);
+  Serial.print("   pitch angle(deg)= ");
+  Serial.print(anglepitch);
+  Serial.print("  h = ");
+  Serial.print(height_of_bump);
+  Serial.print("\n");
+  // period = current -last;
+  // last =current;
+  delay(100);
 }
 
 
