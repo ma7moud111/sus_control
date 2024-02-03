@@ -1,0 +1,9 @@
+../Core/Src/main.c:117:5:main	1
+../Core/Src/main.c:166:6:SystemClock_Config	3
+../Core/Src/main.c:213:13:MX_ADC1_Init	3
+../Core/Src/main.c:265:13:MX_I2C1_Init	2
+../Core/Src/main.c:299:13:MX_GPIO_Init	1
+../Core/Src/main.c:313:6:mpu_init	2
+../Core/Src/main.c:349:6:mpu_run	3
+../Core/Src/main.c:417:6:SharpIr_measure	1
+../Core/Src/main.c:434:6:Error_Handler	1
