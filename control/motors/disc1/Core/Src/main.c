@@ -208,7 +208,7 @@ init_motors(&m1);
 //init_PIDVal(&m1,0.3781, 0,0.0134);
 //init_PIDVal(&m1,1.126, 0,0.0186);      // system identification (small oscillation)(best)
 //init_PIDVal(&m1,1.126, 0,0.0086);
-init_PIDVal(&m1,0.475, 0,0.0134);  //the fshe5aaa one
+init_PIDVal(&m1,0.475, 0,0.0134);  //the fshe5aaa oness
 
 
 Position_GetNewTarget(&m1, 40);
