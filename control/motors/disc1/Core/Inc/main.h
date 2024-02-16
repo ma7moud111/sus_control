@@ -59,18 +59,8 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define m1_pwm_Pin GPIO_PIN_1
-#define m1_pwm_GPIO_Port GPIOA
-#define m1_direc1_Pin GPIO_PIN_2
-#define m1_direc1_GPIO_Port GPIOA
-#define m1_direc2_Pin GPIO_PIN_3
-#define m1_direc2_GPIO_Port GPIOA
 #define BOOT1_Pin GPIO_PIN_2
 #define BOOT1_GPIO_Port GPIOB
-#define m1_encoder_Pin GPIO_PIN_9
-#define m1_encoder_GPIO_Port GPIOE
-#define m1_encoder2_Pin GPIO_PIN_11
-#define m1_encoder2_GPIO_Port GPIOE
 #define LD6_Pin GPIO_PIN_15
 #define LD6_GPIO_Port GPIOD
 #define SWDIO_Pin GPIO_PIN_13

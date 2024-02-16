@@ -10,7 +10,10 @@ C_SRCS :=
 S_UPPER_SRCS := 
 O_SRCS := 
 CYCLO_FILES := 
+<<<<<<< HEAD
 OBJCOPY_HEX := 
+=======
+>>>>>>> parent of c8b5555 ( updating motor code)
 SIZE_OUTPUT := 
 OBJDUMP_LIST := 
 SU_FILES := 

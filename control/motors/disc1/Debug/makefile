@@ -52,9 +52,6 @@ default.size.stdout \
 OBJDUMP_LIST += \
 disc1.list \
 
-OBJCOPY_HEX += \
-disc1.hex \
-
 
 # All Target
 all: main-build
@@ -63,8 +60,13 @@ all: main-build
 main-build: disc1.elf secondary-outputs
 
 # Tool invocations
+<<<<<<< HEAD
 disc1.elf disc1.map: $(OBJS) $(USER_OBJS) C:\Users\Eng.M\Documents\mygithub\sus_control\sus_control\control\motors\disc1\STM32F407VGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-gcc -o "disc1.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Eng.M\Documents\mygithub\sus_control\sus_control\control\motors\disc1\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="disc1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+=======
+disc1.elf disc1.map: $(OBJS) $(USER_OBJS) E:\Graduation\ Project\disc1\disc1\STM32F407VGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "disc1.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"E:\Graduation Project\disc1\disc1\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="disc1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+>>>>>>> parent of c8b5555 ( updating motor code)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -78,17 +80,12 @@ disc1.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-disc1.hex: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objcopy  -O ihex $(EXECUTABLES) "disc1.hex"
-	@echo 'Finished building: $@'
-	@echo ' '
-
 # Other Targets
 clean:
-	-$(RM) default.size.stdout disc1.elf disc1.hex disc1.list disc1.map
+	-$(RM) default.size.stdout disc1.elf disc1.list disc1.map
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'

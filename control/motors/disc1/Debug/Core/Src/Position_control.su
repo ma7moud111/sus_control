@@ -1,7 +1,0 @@
-../Core/Src/Position_control.c:10:6:init_motors	16	static
-../Core/Src/Position_control.c:36:6:Position_GetNewTarget	16	static
-../Core/Src/Position_control.c:41:6:Position_Calc_Signal	24	static
-../Core/Src/Position_control.c:74:6:UpdateEncoder	16	static
-../Core/Src/Position_control.c:83:6:DriveMotor	24	static
-../Core/Src/Position_control.c:105:6:DriveMotorDirection	16	static
-../Core/Src/Position_control.c:124:6:init_PIDVal	24	static
