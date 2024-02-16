@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (10.3-2021.10)
+# Toolchain: GNU Tools for STM32 (11.3.rel1)
 ################################################################################
 
 -include ../makefile.init
@@ -63,8 +63,8 @@ all: main-build
 main-build: disc1.elf secondary-outputs
 
 # Tool invocations
-disc1.elf disc1.map: $(OBJS) $(USER_OBJS) E:\disc1\disc1\STM32F407VGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "disc1.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"E:\disc1\disc1\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="disc1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+disc1.elf disc1.map: $(OBJS) $(USER_OBJS) C:\Users\Eng.M\Documents\mygithub\sus_control\sus_control\control\motors\disc1\STM32F407VGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "disc1.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Eng.M\Documents\mygithub\sus_control\sus_control\control\motors\disc1\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="disc1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

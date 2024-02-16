@@ -24,6 +24,7 @@
 #include "stdio.h"
 #include "stdint.h"
 #include "../Inc/Position_Control.h"
+#include "../Inc/mpu_readings.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
