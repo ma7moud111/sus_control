@@ -1,0 +1,26 @@
+--cpu=Cortex-M4.fp.sp
+"disc1\startup_stm32f407xx.o"
+"disc1\main.o"
+"disc1\stm32f4xx_it.o"
+"disc1\stm32f4xx_hal_msp.o"
+"disc1\stm32f4xx_hal_tim.o"
+"disc1\stm32f4xx_hal_tim_ex.o"
+"disc1\stm32f4xx_hal_rcc.o"
+"disc1\stm32f4xx_hal_rcc_ex.o"
+"disc1\stm32f4xx_hal_flash.o"
+"disc1\stm32f4xx_hal_flash_ex.o"
+"disc1\stm32f4xx_hal_flash_ramfunc.o"
+"disc1\stm32f4xx_hal_gpio.o"
+"disc1\stm32f4xx_hal_dma_ex.o"
+"disc1\stm32f4xx_hal_dma.o"
+"disc1\stm32f4xx_hal_pwr.o"
+"disc1\stm32f4xx_hal_pwr_ex.o"
+"disc1\stm32f4xx_hal_cortex.o"
+"disc1\stm32f4xx_hal.o"
+"disc1\stm32f4xx_hal_exti.o"
+"disc1\system_stm32f4xx.o"
+"D:\ARM Diploma\keil\ARM\RV31\Lib\RTX_CM4.LIB"
+--strict --scatter "disc1\disc1.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "disc1.map" -o disc1\disc1.axf
